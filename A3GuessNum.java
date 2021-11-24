@@ -16,7 +16,10 @@ public A3GuessNum{
     // Make a scanner and Random Object.
     Scanner input = new Scanner(System.in);
     Random numGenerator = new Random();
-    
+    int[] nums = new int[45, 53, 65, 96];
+    for(i < 0; i < nums.length; i++){
+      
+    }
     // Generate a random number from 0-5.
     int answer = numGenerator.nextInt(6);
     int guess = -1; // default guess num.
