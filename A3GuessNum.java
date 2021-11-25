@@ -18,29 +18,38 @@ public class A3GuessNum{
   //main method
   public static void main(String[] arg){
     // Make a scanner and Random Object.
-   Scanner input = new Scanner(System.in);
+   Scanner sc = new Scanner(System.in);
    Random numGenerator = new Random();
    
   
-    // Generate a random number from 0-5.
-    int answer = numGenerator.nextInt(100) + 1;
-    int numberofTries = 5; // default guess num.
+    // Generate a random number from 0-100
+    //Variables
+    int answer = numGenerator.nextInt(100);
+    int lives = 5; // default guess num.
     int guess;
     System.out.println("Welcome to Guessing a number! \n");
     System.out.println("Guess a number, you have 5 guesses!!");
     System.out.println("If you lose... pfft game over!");
     System.out.print("Your number: ");
-    guess = input.nextInt();
-    numberofTries--;
-   //If the number is high or low, you lose a guess
-    if (guess == answer){
-    } else if (guess < answer && guess != numberofTries -1){
-      System.out.println("Your number is too low");
-      System.out.println("Your current guess: " + numberofTries);
-    }else if(guess > answer && guess != numberofTries -1){
-      System.out.println("Your number is too high");
-      System.out.println("Your current guess: " + numberofTries);
+    
+    while(sc.hasNextInt()) {
+      guess = sc.nextInt();
+      if (guess == answer && lives > 0){
+          System.out.println("Correct !!");
+      } else if (guess < answer && lives > 0){
+          lives--;
+          System.out.println("Your current guess : " + guess);
+          System.out.println("Your number is too low");
+          System.out.println("Your current live: " + lives);
+      } else if (guess > answer && lives > 0){
+          lives--;
+          System.out.println("Your current guess : " + guess);
+          System.out.println("Your number is too high");
+          System.out.println("Your current live: " + lives);
+      }
     }
+    
+
 
     // if (answer == guess){
     //   System.out.println("Congrats!");
